@@ -1,3 +1,4 @@
+import { useState } from "react";
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
 function App() {
@@ -67,9 +68,15 @@ function App() {
       rating: "9.5",
     },
   ];
+
+  const [title, setTitle] = useState("");
+  function handleChange(e) {
+    setTitle(e.target.value);
+  }
+  console.log(title);
   return (
     <>
-      <SearchBar />
+      <SearchBar title={title} handleChange={handleChange} />
       <MoviesList movies={movies} />
     </>
   );
