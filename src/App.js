@@ -1,4 +1,5 @@
 import MoviesList from "./components/MoviesList";
+import SearchBar from "./components/SearchBar";
 function App() {
   const movies = [
     {
@@ -66,7 +67,12 @@ function App() {
       rating: "9.5",
     },
   ];
-  return <MoviesList movies={movies} />;
+  return (
+    <>
+      <SearchBar />
+      <MoviesList movies={movies} />
+    </>
+  );
 }
 
 export default App;
