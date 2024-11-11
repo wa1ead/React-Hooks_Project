@@ -1,4 +1,4 @@
-
+import MoviesList from "./components/MoviesList";
 function App() {
   const movies = [
     {
@@ -66,7 +66,7 @@ function App() {
       rating: "9.5",
     },
   ];
-  return ()
+  return <MoviesList movies={movies} />;
 }
 
 export default App;
