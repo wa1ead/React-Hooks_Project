@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
 function App() {
@@ -69,15 +69,29 @@ function App() {
     },
   ];
 
+  //The searchBar input state
   const [title, setTitle] = useState("");
+
+  //The filtered movies state
+  const [filteredMovies, setFilteredMovies] = useState("");
+
   function handleChange(e) {
     setTitle(e.target.value);
   }
-  console.log(title);
+
+  //FILTERING LIST OF MOVIES BASED ON SEARCHBAR INPUT
+  useEffect(() => {
+    setFilteredMovies(
+      movies.filter((movie) =>
+        movie.title.toLowerCase().includes(title.toLowerCase())
+      )
+    );
+  }, [title]);
+
   return (
     <>
       <SearchBar title={title} handleChange={handleChange} />
-      <MoviesList movies={movies} />
+      <MoviesList movies={filteredMovies ? filteredMovies : movies} />
     </>
   );
 }

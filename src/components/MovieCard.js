@@ -2,7 +2,6 @@ function MovieCard({ movie }) {
   return (
     <div
       className="flex flex-col bg-white border shadow-sm rounded-xl max-md:m-auto max-md:w-[80%] max-md:mt-8 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
-      key={movie.title}
     >
       <img
         className="w-full h-auto rounded-t-xl"
