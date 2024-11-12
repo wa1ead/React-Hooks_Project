@@ -1,10 +1,4 @@
-function SearchBar({
-  title,
-  handleChange,
-  handleAddMovie,
-  handleClickModal,
-  modal,
-}) {
+function SearchBar({ title, handleChange, handleClickModal, modal }) {
   return (
     <>
       <div className="flex items-center justify-center p-5">
@@ -43,7 +37,9 @@ function SearchBar({
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">Modal Title</h3>
+                  <h3 className="text-3xl font-semibold">
+                    Insert Movie details
+                  </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={handleClickModal}
@@ -55,13 +51,19 @@ function SearchBar({
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-blueGray-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
-                  </p>
+                  <form>
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" />
+                    <br />
+                    <label for="description">Description: </label>
+                    <input type="text" id="description" />
+                    <br />
+                    <label for="poster">Poster URL: </label>
+                    <input type="text" id="poster" />
+                    <br />
+                    <label for="rating">Rating: </label>
+                    <input type="number" id="rating" />
+                  </form>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
