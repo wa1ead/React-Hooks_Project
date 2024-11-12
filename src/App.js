@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
+
 function App() {
   const movies = [
     {
@@ -71,10 +72,12 @@ function App() {
 
   //The searchBar input state
   const [title, setTitle] = useState("");
-
   //The filtered movies state
   const [filteredMovies, setFilteredMovies] = useState("");
+  //THE DISPLAY MODAL STATE
+  const [modal, setModal] = useState(false);
 
+  //HANDLING SEARCHBAR INPUT
   function handleChange(e) {
     setTitle(e.target.value);
   }
@@ -88,9 +91,19 @@ function App() {
     );
   }, [title]);
 
+  //HANDLING CLICK ADD MOVIE BUTTON EVENT
+  function handleClickModal() {
+    setModal(!modal);
+  }
+
   return (
     <>
-      <SearchBar title={title} handleChange={handleChange} />
+      <SearchBar
+        title={title}
+        modal={modal}
+        handleChange={handleChange}
+        handleClickModal={handleClickModal}
+      />
       <MoviesList movies={filteredMovies ? filteredMovies : movies} />
     </>
   );
