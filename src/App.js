@@ -3,7 +3,7 @@ import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
 
 function App() {
-  const movies = [
+  const [movies, setMovies] = useState([
     {
       title: "Avatar",
       description:
@@ -68,7 +68,7 @@ function App() {
         "http://ia.media-imdb.com/images/M/MV5BMTQ0ODYzODc0OV5BMl5BanBnXkFtZTgwMDk3OTcyMDE@._V1_SX300.jpg",
       rating: "9.5",
     },
-  ];
+  ]);
 
   //The searchBar input state
   const [title, setTitle] = useState("");
@@ -76,6 +76,13 @@ function App() {
   const [filteredMovies, setFilteredMovies] = useState("");
   //THE DISPLAY MODAL STATE
   const [modal, setModal] = useState(false);
+  //THE FORMDATA INPUTTED STATE
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    poster: "",
+    rating: 0,
+  });
 
   //HANDLING SEARCHBAR INPUT
   function handleChange(e) {
@@ -89,11 +96,31 @@ function App() {
         movie.title.toLowerCase().includes(title.toLowerCase())
       )
     );
-  }, [title]);
+  }, [title, movies]);
 
   //HANDLING CLICK ADD MOVIE BUTTON EVENT
   function handleClickModal() {
     setModal(!modal);
+  }
+
+  //HANDLING CHANGE FORM DATA INPUT
+  function handleInputChange(e) {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  }
+
+  //SAVING FORMDATA OBJECT INTO MOVIES ARRAY
+  function handleSaveMovie(e) {
+    e.preventDefault();
+    setMovies((prevMovies) => [...prevMovies, formData]);
+    console.log(formData);
+    setModal(false);
+    setFormData('')
+    console.log(formData);
+
   }
 
   return (
@@ -103,6 +130,9 @@ function App() {
         modal={modal}
         handleChange={handleChange}
         handleClickModal={handleClickModal}
+        formData={formData}
+        handleInputChange={handleInputChange}
+        handleSaveMovie={handleSaveMovie}
       />
       <MoviesList movies={filteredMovies ? filteredMovies : movies} />
     </>
