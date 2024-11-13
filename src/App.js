@@ -116,10 +116,10 @@ function App() {
   function handleSaveMovie(e) {
     e.preventDefault();
     setMovies((prevMovies) => [...prevMovies, formData]);
-    console.log(formData);
+    // console.log(formData);
     setModal(false);
     setFormData('')
-    console.log(formData);
+    // console.log(formData);
 
   }
 
