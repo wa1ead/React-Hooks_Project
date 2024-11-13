@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
+import Modal from "./components/Modal";
 
 function App() {
   const [movies, setMovies] = useState([
@@ -118,22 +119,23 @@ function App() {
     setMovies((prevMovies) => [...prevMovies, formData]);
     // console.log(formData);
     setModal(false);
-    setFormData('')
+    setFormData("");
     // console.log(formData);
-
   }
 
   return (
     <>
-      <SearchBar
-        title={title}
+    <div className='flex'>
+
+      <SearchBar handleChange={handleChange} />
+      <Modal
         modal={modal}
-        handleChange={handleChange}
         handleClickModal={handleClickModal}
         formData={formData}
         handleInputChange={handleInputChange}
         handleSaveMovie={handleSaveMovie}
-      />
+        />
+        </div>
       <MoviesList movies={filteredMovies ? filteredMovies : movies} />
     </>
   );
