@@ -1,7 +1,6 @@
 function Modal({
   handleClickModal,
   modal,
-  formData,
   handleInputChange,
   handleSaveMovie,
 }) {
@@ -34,7 +33,6 @@ function Modal({
                   type="text"
                   name="title"
                   className="block p-2 bg-gray-100 w-[80%] border border-blue-500 rounded-full my-2 text-lg font-semibold focus:outline-none focus:ring focus:ring-blue-700 focus:border-none m-auto mb-4"
-                  value={formData.title}
                   onChange={handleInputChange}
                 />
                 <label for="description" className="text-xl font-medium">
@@ -46,7 +44,6 @@ function Modal({
                   rows="3"
                   name="description"
                   className="block p-2 bg-gray-100 w-[80%] border border-blue-500 rounded-xl my-2 text-lg font-semibold focus:outline-none focus:ring focus:ring-blue-700 focus:border-none m-auto mb-4"
-                  value={formData.description}
                   onChange={handleInputChange}
                 />
                 <label for="poster" className="text-xl font-medium">
@@ -57,7 +54,6 @@ function Modal({
                   type="text"
                   name="poster"
                   className="block p-2 bg-gray-100 w-[80%] border border-blue-500 rounded-full my-2 text-lg font-semibold focus:outline-none focus:ring focus:ring-blue-700 focus:border-none m-auto mb-4"
-                  value={formData.poster}
                   onChange={handleInputChange}
                 />
                 <label for="rating" className="text-xl font-medium">
@@ -70,7 +66,6 @@ function Modal({
                   max="10"
                   name="rating"
                   className="block p-2 bg-gray-100 w-[80%] border border-blue-500 rounded-full my-2 text-lg font-semibold focus:outline-none focus:ring focus:ring-blue-700 focus:border-none m-auto"
-                  value={formData.rating}
                   onChange={handleInputChange}
                 />
                 <div className="flex items-center justify-end p-2 border-t border-solid border-blueGray-200 rounded-b">
