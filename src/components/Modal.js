@@ -73,7 +73,7 @@ function Modal({
                   value={formData.rating}
                   onChange={handleInputChange}
                 />
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <div className="flex items-center justify-end p-2 border-t border-solid border-blueGray-200 rounded-b">
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
@@ -98,7 +98,7 @@ function Modal({
     </>
   ) : (
     <button
-      className="flex jsutify-between items-center bg-blue-500 p-2 rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-blue-800 transition-colors"
+      className="flex jsutify-between items-center bg-blue-500 p-2 rounded-lg text-white font-semibold hover:bg-blue-800 transition-colors m-5"
       onClick={handleClickModal}
     >
       <i class="fa-solid fa-plus"></i>Add a Movie
