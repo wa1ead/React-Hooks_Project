@@ -3,7 +3,7 @@ function MovieCard({ movie }) {
     <div className="flex flex-col bg-white border shadow-sm rounded-xl h-[80vh] max-md:m-auto max-md:w-[80%] max-md:mt-8 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
       <img
         className="w-full h-60 rounded-t-xl"
-        src="https://upload.wikimedia.org/wikipedia/en/1/18/Inception_OST.jpg"
+        src={movie.poster}
         alt={movie.title}
       />
       <div className="p-4 flex flex-col md:p-5">
