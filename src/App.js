@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import MoviesList from "./components/MoviesList";
 import SearchBar from "./components/SearchBar";
 import Modal from "./components/Modal";
+import Description from "./components/Description";
 //IMPORTING MOVIES DATA FROM JSON FILE
 const Movies = require("./Movies.json");
 
@@ -62,22 +64,34 @@ function App() {
   }
 
   return (
-    <>
-      <div className="flex items-center justify-center p-5 w-full">
-        <div className="rounded-lg bg-gray-200 p-4 w-full">
-          <div className="flex">
-            <SearchBar handleChange={handleChange} />
-            <Modal
-              modal={modal}
-              handleClickModal={handleClickModal}
-              handleInputChange={handleInputChange}
-              handleSaveMovie={handleSaveMovie}
-            />
-          </div>
-        </div>
-      </div>
-      <MoviesList movies={filteredMovies ? filteredMovies : movies} />
-    </>
+    <Routes>
+      <Route
+        index
+        path="/"
+        element={
+          <>
+            <div className="flex items-center justify-center p-5 w-full">
+              <div className="rounded-lg bg-gray-200 p-4 w-full">
+                <div className="flex">
+                  <SearchBar handleChange={handleChange} />
+                  <Modal
+                    modal={modal}
+                    handleClickModal={handleClickModal}
+                    handleInputChange={handleInputChange}
+                    handleSaveMovie={handleSaveMovie}
+                  />
+                </div>
+              </div>
+            </div>
+            <MoviesList movies={filteredMovies ? filteredMovies : movies} />{" "}
+          </>
+        }
+      />
+      <Route
+        path="/description/:title"
+        element={<Description movies={movies} />}
+      />
+    </Routes>
   );
 }
 
