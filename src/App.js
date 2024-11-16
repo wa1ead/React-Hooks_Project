@@ -64,6 +64,7 @@ function App() {
   }
 
   return (
+    //ROUTING COMPONENTS WITH DIFFERENT PATHS
     <Routes>
       <Route
         index

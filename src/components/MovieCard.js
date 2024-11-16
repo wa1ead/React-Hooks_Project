@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
   return (
+    //NAVIGATING TO MOVIE DESCRIPTION COMPONENT
     <Link to={`/description/${movie.title}`}>
       <div className="flex flex-col bg-white border shadow-sm rounded-xl h-[80vh] max-md:m-auto max-md:w-[80%] max-md:mt-8 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
         <img

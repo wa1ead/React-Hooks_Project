@@ -1,11 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function Description({ movies }) {
+  //GETTING TITLE FROM URL PARAMS
   const { title } = useParams();
+  //NAVIGATION BACK TO HOME FUNCTION
   const navigate = useNavigate();
-  console.log(title);
+  // console.log(title);
+
+  //FILTERING THE MOVIES OBJECT TO GET THE CLICKED MOVIE DETALIS
   const movie = movies.filter((movie) => movie.title === title);
-  console.log(movie[0]);
+  // console.log(movie[0]);
 
   return (
     <div className="px-8 bg-blue-950">
