@@ -1,50 +1,72 @@
 [
   {
+    "title": "Inception",
+    "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/1/18/Inception_OST.jpg",
+    "rating": "10",
+    "trailer": "https://www.youtube.com/watch?v=LifqWf0BAOA"
+  },
+  {
     "title": "Avatar",
     "description": "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg",
-    "rating": "7.9"
+    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYK12l6BER5Omfzlc-nopGmTzO1udleH_E3g&s",
+    "rating": "7.9",
+    "trailer": "https://www.youtube.com/watch?v=sfUAABzXsKQ"
   },
   {
     "title": "I Am Legend",
     "description": "Years after a plague kills most of humanity and transforms the rest into monsters, the sole survivor in New York City struggles valiantly to find a cure.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMTU4NzMyNDk1OV5BMl5BanBnXkFtZTcwOTEwMzU1MQ@@._V1_SX300.jpg",
-    "rating": "7.2"
+    "poster": "https://m.media-amazon.com/images/M/MV5BMGE1OWZkZmItNmVhMC00YzAxLTgxOTctNjg3NWExM2RmOWJkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "rating": "7.2",
+    "trailer": "https://www.youtube.com/watch?v=yTNKbLhVAQA"
   },
   {
     "title": "300",
     "description": "King Leonidas of Sparta and a force of 300 men fight the Persians at Thermopylae in 480 B.C.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMjAzNTkzNjcxNl5BMl5BanBnXkFtZTYwNDA4NjE3._V1_SX300.jpg",
-    "rating": "7.7"
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjc4OTc0ODgwNV5BMl5BanBnXkFtZTcwNjM1ODE0MQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg",
+    "rating": "7.7",
+    "trailer": "https://www.youtube.com/watch?v=UrIbxk7idYA"
   },
   {
     "title": "The Avengers",
     "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMTk2NTI1MTU4N15BMl5BanBnXkFtZTcwODg0OTY0Nw@@._V1_SX300.jpg",
-    "rating": "8.1"
+    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3SGI0tAFu9WIM7wh6fCSUPlPHootZDtB3nA&s",
+    "rating": "8.1",
+    "trailer": "https://www.youtube.com/watch?v=eOrNdBpGMv8"
   },
   {
     "title": "The Wolf of Wall Street",
     "description": "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker living the high life to his fall involving crime, corruption and the federal government.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_SX300.jpg",
-    "rating": "8.2"
+    "poster": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@._V1_FMjpg_UX1000_.jpg",
+    "rating": "8.2",
+    "trailer": "https://www.youtube.com/watch?v=iszwuX1AK6A"
   },
   {
     "title": "Interstellar",
     "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg",
-    "rating": "8.6"
+    "poster": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+    "rating": "8.6",
+    "trailer": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
+  },
+  {
+    "title": "Hannibal",
+    "description": "Explores the early relationship between renowned psychiatrist Hannibal Lecter and a young FBI criminal profiler who is haunted by his ability to empathize with serial killers.",
+    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHFtaaLShakksvYmelgHrYU_lv2-8UqnB0nw&s",
+    "rating": "10",
+    "trailer": "https://www.youtube.com/watch?v=Es3B24z8fdA"
   },
   {
     "title": "Game of Thrones",
     "description": "While a civil war brews between several noble families in Westeros, the children of the former rulers of the land attempt to rise up to power. Meanwhile a forgotten race, bent on destruction, plans to return after thousands of years in the North.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMjM5OTQ1MTY5Nl5BMl5BanBnXkFtZTgwMjM3NzMxODE@._V1_SX300.jpg",
-    "rating": "9.5"
+    "poster": "https://m.media-amazon.com/images/M/MV5BMTNhMDJmNmYtNDQ5OS00ODdlLWE0ZDAtZTgyYTIwNDY3OTU3XkEyXkFqcGc@._V1_.jpg  ",
+    "rating": "9.5",
+    "trailer": "https://www.youtube.com/watch?v=KPLWWIOCOOQ"
   },
   {
     "title": "Breaking Bad",
     "description": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's financial future.",
-    "poster": "http://ia.media-imdb.com/images/M/MV5BMTQ0ODYzODc0OV5BMl5BanBnXkFtZTgwMDk3OTcyMDE@._V1_SX300.jpg",
-    "rating": "9.5"
+    "poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqhGRPHbiT9WRbp4Mc7kKgT6LHSPHrDiWfEg&s",
+    "rating": "9.5",
+    "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY"
   }
 ]
