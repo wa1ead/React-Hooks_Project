@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import MoviesList from "./MoviesList";
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
-//IMPORTING MOVIES DATA FROM JSON FILE
-const Movies = require("../Movies.json");
+import fetchAllMovies from "./fetchAllMovies";
 
 export default function Home() {
   //THE MOVIES DATA STATE
-  const [movies, setMovies] = useState(Movies);
+  const [movies, setMovies] = useState([]);
   //The filtered movies state
-  const [filteredMovies, setFilteredMovies] = useState("");
+  const [filteredMovies, setFilteredMovies] = useState([]);
   //The searchBar input state
   const [title, setTitle] = useState("");
   //THE DISPLAY MODAL STATE
@@ -21,6 +20,18 @@ export default function Home() {
     poster: "",
     rating: 0,
   });
+
+  //INSERTING DATA INTO MOVIES STATE
+  useEffect(() => {
+    async function assignMovies() {
+      //GETTING MOVIES DATA FROM API FETCHING FUNCTION
+      const moviesData = await fetchAllMovies();
+      //SETTING FETCHED MOVIES DATA INTO THE MOVIES STATE
+      setMovies(moviesData);
+    }
+    assignMovies();
+    console.log(movies);
+  }, []);
 
   //HANDLING SEARCHBAR INPUT
   function handleChange(e) {
@@ -57,7 +68,12 @@ export default function Home() {
     setMovies((prevMovies) => [...prevMovies, formData]);
     // console.log(formData);
     setModal(false);
-    setFormData("");
+    setFormData({
+      title: "",
+      description: "",
+      poster: "",
+      rating: 0,
+    });
     // console.log(formData);
   }
 
