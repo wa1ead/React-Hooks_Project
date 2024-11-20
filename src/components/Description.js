@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
+const movies = require("../Movies.json");
 
-export default function Description({ movies }) {
+export default function Description() {
   const { title } = useParams();
   const navigate = useNavigate();
   console.log(title);
