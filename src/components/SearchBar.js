@@ -1,4 +1,4 @@
-function SearchBar({ handleChange }) {
+function SearchBar({ handleSearch }) {
   return (
     <>
       <div className="flex w-10 items-center justify-center rounded-tl-lg rounded-bl-lg border-r border-gray-200 bg-white p-2">
@@ -14,7 +14,9 @@ function SearchBar({ handleChange }) {
         type="text"
         className="w-full bg-white pl-2 text-base font-semibold outline-0"
         placeholder="Movie Tiltle"
-        onChange={handleChange}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") handleSearch(e);
+        }}
       />
     </>
   );
