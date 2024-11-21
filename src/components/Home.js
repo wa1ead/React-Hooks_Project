@@ -1,14 +1,43 @@
 import { useState, useEffect } from "react";
-import MoviesList from "./MoviesList";
+import PopularMoviesList from "./PopularMoviesList";
+import SearchedMoviesList from "./SearchedMoviesList";
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
-import fetchAllMovies from "./fetchAllMovies";
+import fetchPopularMovies from "../services/fetchPopularMovies";
+import axios from "axios";
 
+async function fetchSearchedMovies(query) {
+  if (!query || query.trim() === "") {
+    return []; // Return an empty array if query is empty
+  }
+
+  const url = `https://api.themoviedb.org/3/search/movie?query=${query.trim()}`;
+
+  const config = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNzI3OWNlYTY0YzQzMTM3NjllOWQ0YTI4M2Q2ZDE0YSIsIm5iZiI6MTczMjEwMTAwMC42MjY1ODYsInN1YiI6IjY3MjRjMDM1YTQ5OWNjMmVmNzA1MDFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gsPQH0ZHA1yJQs6XcAAxNXWXEGtMZDxN5Aez6-h5RUk",
+    },
+  };
+
+  try {
+    // Axios handles JSON parsing automatically
+    const response = await axios.get(url, config);
+    const searchedMoviesData = response.data.results || [];
+    console.log("searched:", searchedMoviesData);
+    return searchedMoviesData;
+  } catch (err) {
+    console.error("Error fetching searched movies:", err);
+    throw err;
+  }
+}
 export default function Home() {
   //THE MOVIES DATA STATE
   const [movies, setMovies] = useState([]);
-  //The filtered movies state
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  //The searched movies state
+  const [searchedMovies, setSearchedMovies] = useState([]);
   //The searchBar input state
   const [title, setTitle] = useState("");
   //THE DISPLAY MODAL STATE
@@ -23,29 +52,35 @@ export default function Home() {
 
   //INSERTING DATA INTO MOVIES STATE
   useEffect(() => {
-    async function assignMovies() {
+    async function popularMovies() {
       //GETTING MOVIES DATA FROM API FETCHING FUNCTION
-      const moviesData = await fetchAllMovies();
+      const popularMoviesData = await fetchPopularMovies();
       //SETTING FETCHED MOVIES DATA INTO THE MOVIES STATE
-      setMovies(moviesData);
+      setMovies(popularMoviesData);
     }
-    assignMovies();
-    console.log(movies);
+    popularMovies();
   }, []);
 
-  //HANDLING SEARCHBAR INPUT
-  function handleChange(e) {
-    setTitle(e.target.value);
-  }
+  console.log("home popular:", movies);
 
-  //FILTERING LIST OF MOVIES BASED ON SEARCHBAR INPUT
+  //HANDLING SEARCHBAR INPUT
+  function handleSearch(e) {
+    setTitle(() => e.target.value);
+  }
+  console.log(title);
+
+  //DISPLAYING LIST OF SEARCHED MOVIES
   useEffect(() => {
-    setFilteredMovies(
-      movies.filter((movie) =>
-        movie.title.toLowerCase().includes(title.toLowerCase())
-      )
-    );
-  }, [title, movies]);
+    async function searchedMovies() {
+      //GETTING SEARCHED MOVIES DATA FROM API FETCHING FUNCTION
+      const searchedMoviesData = await fetchSearchedMovies(title);
+
+      //SETTING SEARCHED MOVIES DATA INTO THE SEARCHED MOVIES STATE
+      setSearchedMovies(searchedMoviesData);
+    }
+    searchedMovies();
+  }, [title]);
+  console.log("home searched:", searchedMovies);
 
   //HANDLING CLICK ADD MOVIE BUTTON EVENT
   function handleClickModal() {
@@ -78,11 +113,11 @@ export default function Home() {
   }
 
   return (
-    <div className='bg-blue-400'>
+    <div className="bg-blue-400">
       <div className="flex items-center justify-center p-4 w-full">
         <div className="rounded-lg bg-gray-200 p-4 w-full">
           <div className="flex">
-            <SearchBar handleChange={handleChange} />
+            <SearchBar handleSearch={handleSearch} />
             <Modal
               modal={modal}
               handleClickModal={handleClickModal}
@@ -92,7 +127,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <MoviesList movies={filteredMovies ? filteredMovies : movies} />
+      {searchedMovies.length > 0 ? (
+        <SearchedMoviesList movies={searchedMovies} />
+      ) : (
+        <PopularMoviesList movies={movies} />
+      )}
     </div>
   );
 }
