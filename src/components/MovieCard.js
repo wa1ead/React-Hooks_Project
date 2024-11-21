@@ -13,7 +13,7 @@ function MovieCard({ movie }) {
           <h3 className="text-lg font-bold text-gray-800 dark:text-white">
             {movie.title}
           </h3>
-          <p className="mt-1 text-gray-500 dark:text-neutral-400 min-h-[150px]">
+          <p className="mt-1 text-gray-500 dark:text-neutral-400 h-[150px] overflow-y-clip">
             {movie.overview}
           </p>
           <p className="mt-1 text-yellow-500">
