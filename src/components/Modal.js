@@ -96,7 +96,7 @@ function Modal({
       className="flex jsutify-between items-center bg-blue-500 p-2 rounded-lg text-white font-semibold hover:bg-blue-800 transition-colors m-5"
       onClick={handleClickModal}
     >
-      <i class="fa-solid fa-plus"></i>Add a Movie
+      <i className="fa-solid fa-plus"></i>Add a Movie
     </button>
   );
 }

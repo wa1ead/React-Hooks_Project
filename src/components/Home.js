@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PopularMoviesList from "./PopularMoviesList";
 import SearchedMoviesList from "./SearchedMoviesList";
 import SearchBar from "./SearchBar";
@@ -113,9 +114,16 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-blue-400">
-      <div className="flex items-center justify-center p-4 w-full">
-        <div className="rounded-lg bg-gray-200 p-4 w-full">
+    <div className="bg-blue-950 px-10">
+      <div className="flex items-center justify-between p-4 max-md:flex-col gap-4">
+        <Link to="/">
+          <img
+            src="../moviesapp-icon.png"
+            alt="moviesApp"
+            className="w-36 h-20"
+          />
+        </Link>
+        <div className="rounded-lg bg-gray-200 ">
           <div className="flex">
             <SearchBar handleSearch={handleSearch} />
             <Modal
@@ -128,7 +136,7 @@ export default function Home() {
         </div>
       </div>
       {searchedMovies.length > 0 ? (
-        <SearchedMoviesList movies={searchedMovies} />
+        <SearchedMoviesList movies={searchedMovies} title={title} />
       ) : (
         <PopularMoviesList movies={movies} />
       )}

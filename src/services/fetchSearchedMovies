@@ -1,6 +1,13 @@
+import axios from "axios";
+
 export default async function fetchSearchedMovies({ query }) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${query}`;
-  const options = {
+  if (!query || query.trim() === "") {
+    return []; // Return an empty array if query is empty
+  }
+
+  const url = `https://api.themoviedb.org/3/search/movie?query=${query.trim()}`;
+
+  const config = {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -8,16 +15,15 @@ export default async function fetchSearchedMovies({ query }) {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNzI3OWNlYTY0YzQzMTM3NjllOWQ0YTI4M2Q2ZDE0YSIsIm5iZiI6MTczMjEwMTAwMC42MjY1ODYsInN1YiI6IjY3MjRjMDM1YTQ5OWNjMmVmNzA1MDFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gsPQH0ZHA1yJQs6XcAAxNXWXEGtMZDxN5Aez6-h5RUk",
     },
   };
+
   try {
-    //FETCHING SEARCHED MOVIES DATA FROM TMDB API
-    const response = await fetch(url, options);
-    //CONVERTING PARSED DATA INTO JSON
-    const data = await response.json();
-    //EXTRACTING DATA ARRAY FROM MOVIES OBJECT
-    const searchedMoviesData = data.results;
-    console.log(searchedMoviesData);
+    // Axios handles JSON parsing automatically
+    const response = await axios.get(url, config);
+    const searchedMoviesData = response.data.results || [];
+    console.log("searched:", searchedMoviesData);
     return searchedMoviesData;
   } catch (err) {
+    console.error("Error fetching searched movies:", err);
     throw err;
   }
 }
