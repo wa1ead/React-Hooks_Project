@@ -31,14 +31,14 @@ export default function Description() {
     return <p>...!</p>;
   }
   return (
-    <div className="px-8 bg-blue-950">
+    <div className="px-8 bg-blue-950 ">
       <button
         className="my-4 self-start py-4 px-8 text-xl border-2 border-white rounded-full text-gray-100 hover:border-none"
         onClick={() => navigate("/")}
       >
         <i class="fa-solid fa-arrow-left"></i>
       </button>
-      <div className="w-full h-[100vh] my-4 flex flex-col gap-8 overflow-hidden">
+      <div className="w-full h-[100%] py-4 flex flex-col gap-8 ">
         <div className="flex w-full justify-between px-2">
           <h2 className="text-4xl font-bold text-gray-200">
             {movie.original_title}
@@ -53,16 +53,18 @@ export default function Description() {
             <span>/10</span>
           </p>
         </div>
-        <img
-          className="w-full h-full rounded-lg"
-          src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
-          alt={movie.original_title}
-        />
+        <a href={movie.homepage} target="_blank" rel="noreferrer">
+          <img
+            className="w-80 h-80 rounded-lg mx-auto"
+            src={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
+            alt={movie.original_title}
+          />
+        </a>
         <p className="mx-6 ">
           <span className="font-light text-lg text-gray-300">
             Description:{" "}
           </span>
-          <span className="text-gray-200 font-semibold text-lg ">
+          <span className="text-gray-100 font-semibold text-lg ">
             {movie.overview}
           </span>
         </p>
