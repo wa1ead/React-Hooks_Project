@@ -12,12 +12,9 @@ import SearchedMoviesList from "./SearchedMoviesList";
 
 //DECLARING FETCH SEARCHED MOVIES FUNCTION IN HOME COMPONENT DUE TO AN UNEXPECTED IMPORTING ERROR
 async function fetchSearchedMovies({ query }) {
-  if (!query || query.trim() === "") {
-    return []; // Return an empty array if query is empty
-  }
+  if (!query || query.trim() === "") return [];
 
   const url = `https://api.themoviedb.org/3/search/movie?query=${query.trim()}`;
-
   const config = {
     method: "GET",
     headers: {
@@ -55,14 +52,25 @@ export default function Home() {
     poster: "",
     rating: 0,
   });
+  //THE LOADING STATE
+  const [loading, setLoading] = useState(true);
 
   //INSERTING DATA INTO MOVIES STATE
   useEffect(() => {
     async function popularMovies() {
-      //GETTING MOVIES DATA FROM API FETCHING FUNCTION
-      const popularMoviesData = await fetchPopularMovies();
-      //SETTING FETCHED MOVIES DATA INTO THE MOVIES STATE
-      setMovies(popularMoviesData);
+      try {
+        //SETTING THE LOADER TO TRUE
+        setLoading(true);
+        //GETTING MOVIES DATA FROM API FETCHING FUNCTION
+        const popularMoviesData = await fetchPopularMovies();
+        //SETTING FETCHED MOVIES DATA INTO THE MOVIES STATE
+        setMovies(popularMoviesData);
+      } catch (err) {
+        console.error(err);
+        throw err;
+      } finally {
+        setLoading(false);
+      }
     }
     popularMovies();
   }, []);
@@ -71,17 +79,26 @@ export default function Home() {
 
   //HANDLING SEARCHBAR INPUT
   function handleSearch(e) {
-    setTitle(() => e.target.value);
+    setTitle(e.target.value);
   }
   console.log(title);
 
   //DISPLAYING LIST OF SEARCHED MOVIES
   useEffect(() => {
     async function searchedMovies() {
-      //GETTING SEARCHED MOVIES DATA FROM API FETCHING FUNCTION
-      const searchedMoviesData = await fetchSearchedMovies(title);
-      //SETTING SEARCHED MOVIES DATA INTO THE SEARCHED MOVIES STATE
-      setSearchedMovies(searchedMoviesData);
+      try {
+        //SETTING THE LOADER TO TRUE
+        setLoading(true);
+        //GETTING SEARCHED MOVIES DATA FROM API FETCHING FUNCTION
+        const searchedMoviesData = await fetchSearchedMovies({ query: title });
+        //SETTING SEARCHED MOVIES DATA INTO THE SEARCHED MOVIES STATE
+        setSearchedMovies(searchedMoviesData);
+      } catch (err) {
+        console.error("Error: ", err);
+        throw err;
+      } finally {
+        setLoading(false);
+      }
     }
     searchedMovies();
   }, [title]);
@@ -116,6 +133,8 @@ export default function Home() {
     });
     // console.log(formData);
   }
+
+  if (loading) return <p>...!</p>;
 
   return (
     <div className="bg-blue-950 px-10">
