@@ -137,8 +137,8 @@ export default function Home() {
   if (loading) return <p>...!</p>;
 
   return (
-    <div className="bg-blue-950 px-10">
-      <div className="flex items-center justify-between p-4 max-md:flex-col gap-4">
+    <div className="bg-blue-200 px-10">
+      <div className="flex items-center justify-between p-4 max-md:flex-col gap-4 pb-8 border-b-2 border-blue-950">
         <Link to="/">
           <img
             src="../moviesapp-icon.png"

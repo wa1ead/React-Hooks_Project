@@ -36,7 +36,7 @@ export default function Description() {
         className="my-4 self-start py-4 px-8 text-xl border-2 border-white rounded-full text-gray-100 hover:border-none"
         onClick={() => navigate("/")}
       >
-        <i class="fa-solid fa-arrow-left"></i>
+        <i className="fa-solid fa-arrow-left"></i>
       </button>
       <div className="w-full h-[100%] py-4 flex flex-col gap-8 ">
         <div className="flex w-full justify-between px-2">
