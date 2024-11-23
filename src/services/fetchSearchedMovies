@@ -19,7 +19,7 @@ export default async function fetchSearchedMovies({ query }) {
   try {
     // Axios handles JSON parsing automatically
     const response = await axios.get(url, config);
-    const searchedMoviesData = response.data.results || [];
+    const searchedMoviesData = response.data.results;
     console.log("searched:", searchedMoviesData);
     return searchedMoviesData;
   } catch (err) {

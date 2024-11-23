@@ -18,6 +18,7 @@ export default function Description() {
         setMovie(movieData);
       } catch (err) {
         console.error("Error: ", err);
+        throw err;
       } finally {
         setLoading(false);
       }

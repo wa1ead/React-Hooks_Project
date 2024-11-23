@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PopularMoviesList from "./PopularMoviesList";
-import SearchedMoviesList from "./SearchedMoviesList";
+import axios from "axios";
+//IMPORTING FETCHING MOVIES FUNCTION FROM SERVICES FOLDER
+import fetchPopularMovies from "../services/fetchPopularMovies";
+// import fetchSearchedMovies from "../services/fetchSearchedMovies";
+//IMPORTING OTHER COMPONENTS
 import SearchBar from "./SearchBar";
 import Modal from "./Modal";
-import fetchPopularMovies from "../services/fetchPopularMovies";
-import axios from "axios";
+import PopularMoviesList from "./PopularMoviesList";
+import SearchedMoviesList from "./SearchedMoviesList";
 
-async function fetchSearchedMovies(query) {
+//DECLARING FETCH SEARCHED MOVIES FUNCTION IN HOME COMPONENT DUE TO AN UNEXPECTED IMPORTING ERROR
+async function fetchSearchedMovies({ query }) {
   if (!query || query.trim() === "") {
     return []; // Return an empty array if query is empty
   }
@@ -26,7 +30,7 @@ async function fetchSearchedMovies(query) {
   try {
     // Axios handles JSON parsing automatically
     const response = await axios.get(url, config);
-    const searchedMoviesData = response.data.results || [];
+    const searchedMoviesData = response.data.results;
     console.log("searched:", searchedMoviesData);
     return searchedMoviesData;
   } catch (err) {
@@ -34,6 +38,7 @@ async function fetchSearchedMovies(query) {
     throw err;
   }
 }
+
 export default function Home() {
   //THE MOVIES DATA STATE
   const [movies, setMovies] = useState([]);
@@ -75,7 +80,6 @@ export default function Home() {
     async function searchedMovies() {
       //GETTING SEARCHED MOVIES DATA FROM API FETCHING FUNCTION
       const searchedMoviesData = await fetchSearchedMovies(title);
-
       //SETTING SEARCHED MOVIES DATA INTO THE SEARCHED MOVIES STATE
       setSearchedMovies(searchedMoviesData);
     }
