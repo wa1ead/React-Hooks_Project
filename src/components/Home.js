@@ -146,6 +146,7 @@ export default function Home() {
             className="w-36 h-20"
           />
         </Link>
+        <Link to="/favourites">FAV</Link>
         <div className="rounded-lg bg-gray-200 ">
           <div className="flex">
             <SearchBar handleSearch={handleSearch} />
