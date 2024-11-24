@@ -10,7 +10,24 @@ function MovieCard({ movie }) {
       // If a second click happens within the timeout, it's a double-click
       clearTimeout(clickTimeout); // Clear the single-click timeout
       setClickTimeout(null); // Reset the timeout state
-      console.log("Double-click detected!");
+
+      // Save the movie details to localStorage
+      const favouriteMovies =
+        JSON.parse(localStorage.getItem("favouriteMovies")) || [];
+      const movieExists = favouriteMovies.find(
+        (favouriteMovie) => favouriteMovie.id === movie.id
+      );
+
+      if (!movieExists) {
+        favouriteMovies.push(movie);
+        localStorage.setItem(
+          "favouriteMovies",
+          JSON.stringify(favouriteMovies)
+        );
+        console.log("Movie saved to localStorage:", movie);
+      } else {
+        console.log("Movie already exists in localStorage");
+      }
     } else {
       // Set a timeout for single-click detection
       const timeout = setTimeout(() => {
