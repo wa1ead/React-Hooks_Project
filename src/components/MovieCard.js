@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function MovieCard({ movie }) {
   const navigate = useNavigate();
@@ -24,9 +25,11 @@ function MovieCard({ movie }) {
           "favouriteMovies",
           JSON.stringify(favouriteMovies)
         );
-        console.log("Movie saved to localStorage:", movie);
+        toast.success("Movie added to favourites!");
       } else {
-        console.log("Movie already exists in localStorage");
+        toast("Movie already exists in favourites ", {
+          icon: "⭐",
+        });
       }
     } else {
       // Set a timeout for single-click detection
