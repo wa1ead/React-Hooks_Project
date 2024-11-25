@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "dotenv/config";
 //IMPORTING FETCHING MOVIES FUNCTION FROM SERVICES FOLDER
 import fetchPopularMovies from "../services/fetchPopularMovies";
 // import fetchSearchedMovies from "../services/fetchSearchedMovies";
@@ -19,8 +20,8 @@ async function fetchSearchedMovies({ query }) {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxNzI3OWNlYTY0YzQzMTM3NjllOWQ0YTI4M2Q2ZDE0YSIsIm5iZiI6MTczMjEwMTAwMC42MjY1ODYsInN1YiI6IjY3MjRjMDM1YTQ5OWNjMmVmNzA1MDFkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gsPQH0ZHA1yJQs6XcAAxNXWXEGtMZDxN5Aez6-h5RUk",
+      //HIDING THE TOKEN INTO DOTENV FILE
+      Authorization: process.env.API_KEY,
     },
   };
 
