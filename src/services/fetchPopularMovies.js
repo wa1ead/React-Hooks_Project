@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 export default async function fetchPopularMovies() {
   const url =
     "https://api.themoviedb.org/3/discover/movie?language=en-US&sort_by=popularity.desc";
@@ -8,7 +6,7 @@ export default async function fetchPopularMovies() {
     headers: {
       accept: "application/json",
       //HIDING THE TOKEN INTO DOTENV FILE
-      Authorization: process.env.API_KEY,
+      Authorization: process.env.REACT_APP_API_KEY,
     },
   };
   try {

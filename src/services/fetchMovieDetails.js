@@ -1,4 +1,3 @@
-import "dotenv/config";
 import axios from "axios";
 
 export default async function fetchMovieDetails({ id }) {
@@ -8,7 +7,7 @@ export default async function fetchMovieDetails({ id }) {
     headers: {
       accept: "application/json",
       //HIDING THE TOKEN INTO DOTENV FILE
-      Authorization: process.env.API_KEY,
+      Authorization: process.env.REACT_APP_API_KEY,
     },
   };
 
