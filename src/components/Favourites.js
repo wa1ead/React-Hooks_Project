@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Favourites() {
   //SAVING MOVIES FROM LOCALSTORAGE TO FAVOURITES VARIABLE
@@ -14,30 +15,35 @@ export default function Favourites() {
         FAVOURITE MOVIES LIST⭐
       </h1>
       {favouriteMovies.map((fav) => (
-        <div className="bg-white h-80 max-sm:min-h-[80vh] border rounded-xl shadow-sm sm:flex dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-          <div className="shrink-0 relative w-full rounded-t-xl overflow-hidden  sm:rounded-s-xl sm:max-w-60 md:rounded-se-none md:max-w-xs max-sm:h-60">
-            <img
-              className="size-full absolute top-0 start-0 object-cover"
-              src={"https://image.tmdb.org/t/p/w500" + fav.poster_path}
-              alt={fav.title}
-            />
-          </div>
-          <div className="flex flex-wrap size-full">
-            <div className="p-4 flex flex-col h-full sm:p-7">
-              <h3 className="text-lg font-bold text-gray-800 dark:text-white">
-                {fav.title}
-              </h3>
-              <p className="mt-1 text-gray-500 dark:text-neutral-400">
-                {fav.overview}
-              </p>
-              <div className="mt-5 sm:mt-auto">
-                <p className="text-xs text-gray-500 dark:text-neutral-500">
-                  Last updated 5 mins ago
+        <Link to={`/description/${fav.id}`}>
+          <div
+            className="bg-white h-80 max-sm:min-h-[80vh] border rounded-xl shadow-sm sm:flex dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+            key={fav.id}
+          >
+            <div className="shrink-0 relative w-full rounded-t-xl overflow-hidden  sm:rounded-s-xl sm:max-w-60 md:rounded-se-none md:max-w-xs max-sm:h-60">
+              <img
+                className="size-full absolute top-0 start-0 object-cover"
+                src={"https://image.tmdb.org/t/p/w500" + fav.poster_path}
+                alt={fav.title}
+              />
+            </div>
+            <div className="flex flex-wrap w-full ">
+              <div className="p-4 flex flex-col h-full sm:p-7 ">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white">
+                  {fav.title}
+                </h3>
+                <p className="mt-1 text-gray-500 dark:text-neutral-400 overflow-clip max-sm:max-h-40">
+                  {fav.overview}
                 </p>
+                <div className="mt-5 sm:mt-auto">
+                  <p className="mt-1 text-yellow-400 ">
+                    ⭐Rating: <b>{fav.vote_average.toFixed(1)}</b>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

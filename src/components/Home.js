@@ -146,7 +146,6 @@ export default function Home() {
             className="w-36 h-20"
           />
         </Link>
-        <Link to="/favourites">FAV</Link>
         <div className="rounded-lg bg-gray-200 ">
           <div className="flex">
             <SearchBar handleSearch={handleSearch} />
@@ -158,6 +157,9 @@ export default function Home() {
             />
           </div>
         </div>
+        <Link to="/favourites" className="font-bold text-gray-700 text-xl">
+          Favourites⭐
+        </Link>
       </div>
       {searchedMovies.length > 0 ? (
         <SearchedMoviesList movies={searchedMovies} title={title} />

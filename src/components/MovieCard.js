@@ -60,8 +60,8 @@ function MovieCard({ movie }) {
           </p>
         </div>
         <div className="p-4">
-          <p className="mt-1 text-yellow-500">
-            Rating: <b>{movie.vote_average.toFixed(1)}</b>
+          <p className="mt-1 text-yellow-400">
+          ⭐Rating: <b>{movie.vote_average.toFixed(1)}</b>
           </p>
         </div>
       </div>
