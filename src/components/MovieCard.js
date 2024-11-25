@@ -43,7 +43,7 @@ function MovieCard({ movie }) {
   return (
     <button onClick={handleClick}>
       <div
-        className="flex flex-col bg-white border shadow-sm rounded-xl h-[80vh] max-md:m-auto max-md:w-[80%] max-md:mt-8 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+        className="flex flex-col bg-white border shadow-sm rounded-xl h-[80vh] max-md:m-auto max-md:w-[80%] max-md:mt-8 dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70 transition ease-in-out transform hover:scale-110 hover:translate-y-1 duration-300"
         key={movie.id}
       >
         <img
@@ -61,7 +61,7 @@ function MovieCard({ movie }) {
         </div>
         <div className="p-4">
           <p className="mt-1 text-yellow-400">
-          ⭐Rating: <b>{movie.vote_average.toFixed(1)}</b>
+            ⭐Rating: <b>{movie.vote_average.toFixed(1)}</b>
           </p>
         </div>
       </div>

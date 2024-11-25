@@ -31,14 +31,14 @@ export default function Description() {
     return <p>...!</p>;
   }
   return (
-    <div className="px-8 bg-blue-950 ">
+    <div className="px-8 bg-blue-950">
       <button
-        className="my-4 self-start py-4 px-8 text-xl border-2 border-white rounded-full text-gray-100 hover:border-none"
-        onClick={() => navigate("/")}
+        className="transition ease-in-out transform hover:scale-110 hover:translate-y-1 duration-300 my-4 self-start py-4 px-8 text-xl border-2 border-white rounded-full text-gray-100 "
+        onClick={() => navigate(-1)}
       >
         <i className="fa-solid fa-arrow-left"></i>
       </button>
-      <div className="w-full h-[100%] py-4 flex flex-col gap-8 ">
+      <div className="size-full py-4 flex flex-col gap-8">
         <div className="flex w-full justify-between px-2">
           <h2 className="text-4xl font-bold text-gray-200">
             {movie.original_title}
